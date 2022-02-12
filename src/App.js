@@ -1,14 +1,25 @@
-
-import Todo from "./components/Todo";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import AllMeetupsPage from './pages/AllMeetups';
+import FavoritesPage from './pages/Favorites';
+import NewMeetupPage from './pages/NewMeetup';
 
 function App() {
   return (
-    <div>
-      <h1>My Todos</h1>
-      <Todo title="Learn JSX" text="okey sir" />
-      <Todo title="What is root" text="yeye"/>
-      <Todo title="Learn React" text="yeye"/>
-    </div>
+    <Layout>
+      <Switch>
+        <Route exact path="/">
+          <AllMeetupsPage />
+        </Route>
+        <Route path="/favorites">
+          <FavoritesPage />
+        </Route>
+        <Route path="/new-meetup">
+          <NewMeetupPage />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
