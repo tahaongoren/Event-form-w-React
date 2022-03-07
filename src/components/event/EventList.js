@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MeetupItem from './MeetupItem';
+import styled from 'styled-components';
+import EventItem from './EventItem';
 
-import classes from './MeetupList.module.css';
-
-function MeetupList({ id, title, image, address, description }) {
-  return (
-    <ul className={classes.list}>
-      <MeetupItem
+const EventList = ({ id, title, image, address, description }) => (
+    <EventItemmWrapper>
+      <EventItem
         key={id}
         id={id}
         image={image}
@@ -15,11 +13,14 @@ function MeetupList({ id, title, image, address, description }) {
         address={address}
         description={description}
       />
-    </ul>
-  );
-}
-
-MeetupList.propTypes = {
+    </EventItemmWrapper>
+  )
+const EventItemmWrapper = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+EventList.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
@@ -27,4 +28,4 @@ MeetupList.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default MeetupList;
+export default EventList;
