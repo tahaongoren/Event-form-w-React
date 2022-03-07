@@ -1,16 +1,18 @@
 import propTypes from 'prop-types';
-import classes from './Layout.module.css';
-import MainNavigation from './MainNavigation';
+import styled from 'styled-components';
+import Header from './Header/Header';
 
-function Layout({ children }) {
-  return (
+const Layout = ({ children }) => (
     <div>
-      <MainNavigation />
-      <main className={classes.main}>{children}</main>
+      <Header />
+      <Main>{children}</Main>
     </div>
-  );
-}
-
+  )
+const Main = styled.main`
+  margin: 50px auto;
+  width: 100%;
+  max-width: 640px;
+`;
 Layout.propTypes = {
   children: propTypes.node.isRequired,
 };

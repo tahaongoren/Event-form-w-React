@@ -1,22 +1,26 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: ['plugin:react/recommended', 'airbnb'],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  extends: ['next', 'airbnb', 'next/core-web-vitals', 'prettier'],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['.'],
+      },
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
   },
-  plugins: ['react'],
   rules: {
-    // suppress errors for missing 'import React' in files
-    'react/react-in-jsx-scope': 'off',
-    'object-curly-newline': 'off',
-    // allow jsx syntax in js files (for next.js project)
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }], // should add ".ts" if typescript project
+    indent: 'off',
+
+    'react/jsx-filename-extension': [0],
+    '@next/next/no-img-element': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-shadow': 'off',
+    'no-nested-ternary': 'off',
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
   },
 };
